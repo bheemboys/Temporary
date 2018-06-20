@@ -1,0 +1,27 @@
+---
+declared-services:
+  Banking-Conversation-Service:
+    label: conversation
+    plan: free
+  Banking-Discovery-Service:
+    label: discovery
+    plan: lite
+  Banking-Natural-Language-Understanding:
+    label: natural-language-understanding
+    plan: free
+  Banking-Tone-Analyzer:
+    label: tone_analyzer
+    plan: lite
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  name: watsonbankingchatbot
+  disk_quota: 256M
+  random-route: false
+  timeout: 180
+  services:
+  - Banking-Conversation-Service
+  - Banking-Discovery-Service
+  - Banking-Natural-Language-Understanding
+  - Banking-Tone-Analyzer
